@@ -1,168 +1,152 @@
-// ========================================
-// CAREER QUERY ASSISTANT
-// Frontend Mock Logic
-// ========================================
-
-
+// ================================
 // PAGE NAVIGATION
+// ================================
 
-const navItems = document.querySelectorAll(".nav-item[data-page]");
+const navButtons = document.querySelectorAll(".nav");
 const pages = document.querySelectorAll(".page");
 
-function openPage(pageId) {
+function showPage(pageId) {
 
     pages.forEach(page => {
         page.classList.remove("active");
     });
 
-    const selectedPage = document.getElementById(pageId);
+    navButtons.forEach(button => {
+        button.classList.remove("active");
+    });
 
-    if (selectedPage) {
-        selectedPage.classList.add("active");
+    const page = document.getElementById(pageId);
+    const button = document.querySelector(
+        `.nav[data-page="${pageId}"]`
+    );
+
+    if (page) {
+        page.classList.add("active");
     }
 
-    navItems.forEach(item => {
-        item.classList.remove("active");
+    if (button) {
+        button.classList.add("active");
+    }
 
-        if (item.dataset.page === pageId) {
-            item.classList.add("active");
-        }
-    });
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo(0, 0);
 }
 
 
-// SIDEBAR CLICK
+// Sidebar navigation
 
-navItems.forEach(item => {
-
-    item.addEventListener("click", () => {
-
-        openPage(item.dataset.page);
-
-    });
-
-});
-
-
-// DASHBOARD ACTION CARDS
-
-const actionButtons = document.querySelectorAll("[data-open]");
-
-actionButtons.forEach(button => {
+navButtons.forEach(button => {
 
     button.addEventListener("click", () => {
-
-        const page = button.dataset.open;
-
-        openPage(page);
-
+        showPage(button.dataset.page);
     });
 
 });
 
 
-// CAREER QUERY EXAMPLES
+// Dashboard buttons
 
-const exampleButtons = document.querySelectorAll(".example-btn");
-
-exampleButtons.forEach(button => {
+document.querySelectorAll("[data-go]").forEach(button => {
 
     button.addEventListener("click", () => {
-
-        const question = document.getElementById("careerQuestion");
-
-        question.value = button.textContent;
-
-        question.focus();
-
+        showPage(button.dataset.go);
     });
 
 });
 
 
+// ================================
 // CAREER QUERY
+// ================================
 
-const askCareer = document.getElementById("askCareer");
+const careerButton =
+    document.getElementById("careerButton");
 
-if (askCareer) {
+if (careerButton) {
 
-    askCareer.addEventListener("click", () => {
+    careerButton.addEventListener("click", () => {
 
         const question =
-            document.getElementById("careerQuestion").value.trim();
+            document.getElementById("careerInput").value.trim();
+
+        const answer =
+            document.getElementById("careerAnswer");
 
         if (!question) {
-
-            alert("Please enter a career question.");
-
+            answer.innerHTML =
+                "<b>Please enter a career question.</b>";
             return;
         }
 
-        askCareer.textContent = "Analyzing...";
-
-        setTimeout(() => {
-
-            askCareer.textContent = "Ask Career Assistant";
-
-            alert(
-                "Mock Career Assistant Result:\n\n" +
-                "Recommended Role: AI/ML Engineer\n" +
-                "Match: 91%\n\n" +
-                "Skills: Python • Machine Learning • SQL"
-            );
-
-        }, 800);
+        answer.innerHTML = `
+            <h3>Career Assistant Result</h3>
+            <p><b>Your Question:</b> ${question}</p>
+            <br>
+            <p><b>Recommended Role:</b> AI/ML Engineer</p>
+            <p><b>Match:</b> 91%</p>
+            <p><b>Important Skills:</b> Python • Machine Learning • SQL</p>
+        `;
 
     });
 
 }
 
 
+// ================================
 // JOB RESEARCH
+// ================================
 
-const analyzeJob = document.getElementById("analyzeJob");
+const researchButton =
+    document.getElementById("researchButton");
 
-if (analyzeJob) {
+if (researchButton) {
 
-    analyzeJob.addEventListener("click", () => {
+    researchButton.addEventListener("click", () => {
 
         const title =
-            document.getElementById("jobTitle").value.trim();
+            document.getElementById("jobTitle").value;
 
-        if (!title) {
+        const result =
+            document.getElementById("researchResult");
 
-            alert("Please enter a job title.");
+        result.innerHTML = `
+            <h3>JOB INSIGHTS</h3>
 
-            return;
-        }
+            <p><b>Job:</b> ${title}</p>
 
-        analyzeJob.textContent = "Analyzing...";
+            <br>
 
-        setTimeout(() => {
+            <p><b>Required Skills</b></p>
+            <span class="skill good">Python ✓</span>
+            <span class="skill good">Machine Learning ✓</span>
+            <span class="skill good">SQL ✓</span>
 
-            analyzeJob.textContent = "Analyze Job";
+            <br><br>
 
-            alert(
-                "Job analysis completed using mock data.\n\n" +
-                "Required: Python, Machine Learning, SQL\n" +
-                "Preferred: Docker, AWS"
-            );
+            <p><b>Preferred Skills</b></p>
+            <span class="skill warning">Docker ⚠</span>
+            <span class="skill warning">AWS ⚠</span>
 
-        }, 800);
+            <br><br>
+
+            <p><b>Technologies:</b> Python | TensorFlow | SQL</p>
+
+            <p><b>Responsibilities:</b></p>
+            <p>• Build ML models</p>
+            <p>• Analyze data</p>
+            <p>• Deploy models</p>
+        `;
 
     });
 
 }
 
 
-// RESUME FILE UPLOAD
+// ================================
+// RESUME FILE
+// ================================
 
-const resumeFile = document.getElementById("resumeFile");
+const resumeFile =
+    document.getElementById("resumeFile");
 
 if (resumeFile) {
 
@@ -173,10 +157,8 @@ if (resumeFile) {
 
         if (resumeFile.files.length > 0) {
 
-            const file = resumeFile.files[0];
-
             fileName.textContent =
-                "Selected: " + file.name;
+                "Selected: " + resumeFile.files[0].name;
 
         }
 
@@ -185,14 +167,16 @@ if (resumeFile) {
 }
 
 
-// RESUME ANALYSIS
+// ================================
+// RESUME MATCH
+// ================================
 
-const analyzeResume =
-    document.getElementById("analyzeResume");
+const matchButton =
+    document.getElementById("matchButton");
 
-if (analyzeResume) {
+if (matchButton) {
 
-    analyzeResume.addEventListener("click", () => {
+    matchButton.addEventListener("click", () => {
 
         const file =
             document.getElementById("resumeFile").files[0];
@@ -200,119 +184,192 @@ if (analyzeResume) {
         const job =
             document.getElementById("resumeJob").value.trim();
 
+        const result =
+            document.getElementById("matchResult");
+
         if (!file) {
 
-            alert("Please upload your resume PDF.");
+            result.innerHTML =
+                "<p>Please upload your PDF resume.</p>";
 
             return;
         }
 
         if (!job) {
 
-            alert("Please paste the job description.");
+            result.innerHTML =
+                "<p>Please enter the job description.</p>";
 
             return;
         }
 
-        analyzeResume.textContent = "Analyzing Resume...";
+        result.innerHTML = `
 
-        setTimeout(() => {
+            <div class="match-card">
 
-            analyzeResume.textContent = "Analyze Match";
+                <p>JOB MATCH</p>
 
-            alert(
-                "Resume analysis completed!\n\n" +
-                "Mock Match Score: 87%\n\n" +
-                "Strong Matches: Python, SQL, ML, React\n" +
-                "Underrepresented: FastAPI, REST APIs\n" +
-                "Missing: Docker"
-            );
+                <div class="score">87%</div>
 
-        }, 1200);
+                <div class="progress">
+                    <div style="width:87%"></div>
+                </div>
+
+                <h3>✓ Strong Matches</h3>
+
+                <span class="skill good">Python ✓</span>
+                <span class="skill good">SQL ✓</span>
+                <span class="skill good">Machine Learning ✓</span>
+                <span class="skill good">React ✓</span>
+
+                <br><br>
+
+                <h3>⚠ Underrepresented</h3>
+
+                <span class="skill warning">FastAPI ⚠</span>
+                <span class="skill warning">REST APIs ⚠</span>
+
+                <br><br>
+
+                <h3>✕ Missing</h3>
+
+                <span class="skill missing">Docker ✕</span>
+
+                <br><br>
+
+                <h3>Recommendations</h3>
+
+                <p>• Add measurable project results</p>
+                <p>• Highlight API development</p>
+                <p>• Mention relevant ML projects</p>
+
+            </div>
+        `;
 
     });
 
 }
 
 
-// GITHUB PROJECT ANALYSIS
+// ================================
+// PROJECT INTELLIGENCE
+// ================================
 
-const analyzeProject =
-    document.getElementById("analyzeProject");
+const projectButton =
+    document.getElementById("projectButton");
 
-if (analyzeProject) {
+if (projectButton) {
 
-    analyzeProject.addEventListener("click", () => {
+    projectButton.addEventListener("click", () => {
 
-        const githubUrl =
+        const url =
             document.getElementById("githubUrl").value.trim();
 
-        if (!githubUrl) {
+        const result =
+            document.getElementById("projectResult");
 
-            alert("Please enter a GitHub repository URL.");
+        if (!url) {
+
+            result.innerHTML =
+                "<p>Please enter your GitHub repository URL.</p>";
 
             return;
         }
 
-        analyzeProject.textContent = "Analyzing Project...";
+        result.innerHTML = `
 
-        setTimeout(() => {
+            <div class="answer">
 
-            analyzeProject.textContent = "Analyze Project";
+                <h3>Detected Technologies</h3>
 
-            alert(
-                "Project analysis completed using mock data.\n\n" +
-                "Detected Technologies:\n" +
-                "Python, React, Firebase, FastAPI, REST API"
-            );
+                <span class="skill good">Python ✓</span>
+                <span class="skill good">React ✓</span>
+                <span class="skill good">Firebase ✓</span>
+                <span class="skill good">FastAPI ✓</span>
+                <span class="skill good">REST API ✓</span>
 
-        }, 1200);
+                <br><br>
+
+                <h3>Project Evidence</h3>
+
+                <p>AI Resume Analyzer</p>
+                <p>├── Python</p>
+                <p>├── React</p>
+                <p>├── API Integration</p>
+                <p>└── Machine Learning</p>
+
+                <br>
+
+                <h3>Resume Representation</h3>
+
+                <p>
+                    ⚠ FastAPI appears in the project
+                    but is not clearly represented in the resume.
+                </p>
+
+            </div>
+        `;
 
     });
 
 }
 
 
+// ================================
 // RESUME GENERATOR
+// ================================
 
-const generateResume =
-    document.getElementById("generateResume");
+const generateButton =
+    document.getElementById("generateButton");
 
-if (generateResume) {
+if (generateButton) {
 
-    generateResume.addEventListener("click", () => {
+    generateButton.addEventListener("click", () => {
 
-        generateResume.textContent =
-            "Generating...";
+        const role =
+            document.getElementById("targetRole").value;
 
-        setTimeout(() => {
+        const result =
+            document.getElementById("generatedResume");
 
-            generateResume.textContent =
-                "Generate Tailored Resume";
+        result.innerHTML = `
 
-            alert(
-                "Tailored resume generated using mock data."
-            );
+            <div class="match-card">
 
-        }, 1000);
+                <h1>ARIFA YASMEEN</h1>
 
-    });
+                <p><b>${role}</b></p>
 
-}
+                <hr><br>
 
+                <h3>SUMMARY</h3>
 
-// DOWNLOAD PDF PLACEHOLDER
+                <p>
+                    AI/ML developer with experience in
+                    Python, machine learning, SQL and
+                    modern web technologies.
+                </p>
 
-const downloadResume =
-    document.getElementById("downloadResume");
+                <br>
 
-if (downloadResume) {
+                <h3>SKILLS</h3>
 
-    downloadResume.addEventListener("click", () => {
+                <p>
+                    Python | Machine Learning | SQL |
+                    React | FastAPI
+                </p>
 
-        alert(
-            "PDF generation will be connected to the backend later."
-        );
+                <br>
+
+                <h3>PROJECTS</h3>
+
+                <p>
+                    AI Resume Analyzer — Python,
+                    React, APIs and Machine Learning.
+                </p>
+
+            </div>
+        `;
 
     });
 
