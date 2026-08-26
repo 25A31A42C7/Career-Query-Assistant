@@ -399,3 +399,94 @@ textarea {
         padding: 15px;
     }
 }
+/* =========================
+   CAREER LEARNING FLASHCARDS
+   ========================= */
+
+.flashcard-container {
+    max-width: 700px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.skill-gap {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.flashcard {
+    background: white;
+    border-radius: 16px;
+    padding: 45px 30px;
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.flashcard h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.flashcard button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.flashcard-answer {
+    margin: 15px 0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.flashcard-progress {
+    margin: 25px 0 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.flashcard-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.flashcard-navigation button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.flashcard-navigation button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+
+    .flashcard-container {
+        margin: 20px 10px;
+    }
+
+    .flashcard {
+        padding: 30px 20px;
+    }
+
+    .flashcard h2 {
+        font-size: 20px;
+    }
+
+    .flashcard-navigation {
+        flex-direction: column;
+    }
+
+}
+
