@@ -1,0 +1,511 @@
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #172033;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #2563eb;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #172033;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #2563eb;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    padding: 100px 7%;
+    background: linear-gradient(135deg, #eff6ff, #ffffff);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.small-title {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #5b6475;
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn,
+.secondary-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 13px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+}
+
+.secondary-btn {
+    background: #e8eefc;
+    color: #1d4ed8;
+    margin-top: 20px;
+}
+
+.secondary-btn:hover {
+    background: #dbe5fb;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 80px 7%;
+}
+
+.light-section {
+    background: #f7f9fc;
+}
+
+.section-title {
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-title > p:last-child {
+    color: #667085;
+}
+
+
+/* =========================
+   ASSISTANT
+========================= */
+
+.assistant-box {
+    max-width: 850px;
+    padding: 30px;
+    background: white;
+    border: 1px solid #e1e5eb;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+textarea {
+    width: 100%;
+    min-height: 130px;
+    resize: vertical;
+    padding: 15px;
+    border: 1px solid #d7dce5;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.response {
+    margin-top: 20px;
+    padding: 20px;
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+}
+
+.loading {
+    margin-top: 15px;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+
+/* =========================
+   JOB CARDS
+========================= */
+
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.job-card {
+    background: white;
+    border: 1px solid #e2e6ed;
+    border-radius: 14px;
+    padding: 25px;
+    transition: 0.2s;
+}
+
+.job-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.job-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.job-card h3 {
+    margin-bottom: 5px;
+}
+
+.job-card p {
+    color: #667085;
+}
+
+.match-score {
+    min-width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #15803d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.job-description {
+    margin-top: 20px;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.skill {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.skill.good {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.skill.warning {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+
+/* =========================
+   RESUME
+========================= */
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.upload-box,
+.input-box {
+    border: 2px dashed #cbd5e1;
+    border-radius: 14px;
+    padding: 35px;
+    background: white;
+}
+
+.upload-box {
+    text-align: center;
+}
+
+.upload-icon {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #eff6ff;
+    color: #2563eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.upload-box input {
+    margin-top: 20px;
+}
+
+#fileName {
+    margin-top: 15px;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.center-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* =========================
+   MATCH RESULT
+========================= */
+
+.match-result {
+    margin-top: 35px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 14px;
+}
+
+.big-score {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #22c55e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   SKILL GAP
+========================= */
+
+.skill-gap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.recommendation-card {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #e2e6ed;
+}
+
+.recommendation-card h3 {
+    margin: 15px 0;
+}
+
+.recommendation-card p {
+    color: #667085;
+    margin-bottom: 20px;
+}
+
+.recommendation-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background: #eff6ff;
+    color: #2563eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   RESEARCH
+========================= */
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.research-card {
+    padding: 30px;
+    border-radius: 14px;
+    background: white;
+    border: 1px solid #e2e6ed;
+}
+
+.research-card h3 {
+    margin-bottom: 15px;
+}
+
+.research-card p {
+    color: #667085;
+    margin-bottom: 20px;
+}
+
+.research-info {
+    font-weight: bold;
+    color: #2563eb;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 50px 7%;
+    background: #172033;
+    color: white;
+}
+
+footer p {
+    color: #b7bfce;
+    margin-top: 8px;
+}
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .job-grid,
+    .skill-gap-grid,
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+}

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Query Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            Career<span>Query</span>
+        </div>
+
+        <nav>
+            <a href="#assistant">Assistant</a>
+            <a href="#jobs">Jobs</a>
+            <a href="#resume">Resume</a>
+            <a href="#research">Research</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">AI-POWERED CAREER PLATFORM</p>
+
+            <h1>
+                Build Your Career
+                <span>With AI</span>
+            </h1>
+
+            <p>
+                Ask career questions, discover suitable jobs,
+                analyze your resume and find your skill gaps.
+            </p>
+
+            <button class="primary-btn" onclick="scrollToAssistant()">
+                Start Your Career Journey
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAREER QUERY ASSISTANT -->
+    <section class="section" id="assistant">
+
+        <div class="section-title">
+
+            <p class="small-title">01 • CAREER ASSISTANT</p>
+
+            <h2>Ask a Career Question</h2>
+
+            <p>
+                Get guidance about careers, skills, jobs and opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="assistant-box">
+
+            <textarea
+                id="careerQuestion"
+                placeholder="Example: What skills do I need to become an AI/ML Engineer?"
+            ></textarea>
+
+            <button class="primary-btn" onclick="askCareerQuestion()">
+                Ask Assistant
+            </button>
+
+            <div id="loading" class="loading hidden">
+                Thinking...
+            </div>
+
+            <div id="assistantResponse" class="response hidden">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOB RECOMMENDATIONS -->
+    <section class="section light-section" id="jobs">
+
+        <div class="section-title">
+
+            <p class="small-title">02 • JOB DISCOVERY</p>
+
+            <h2>Recommended Jobs</h2>
+
+            <p>
+                Explore jobs that match your skills.
+            </p>
+
+        </div>
+
+
+        <div class="job-grid">
+
+            <!-- JOB CARD 1 -->
+            <div class="job-card">
+
+                <div class="job-top">
+
+                    <div>
+                        <h3>AI/ML Engineer Intern</h3>
+                        <p>Technology Company</p>
+                    </div>
+
+                    <div class="match-score">
+                        87%
+                    </div>
+
+                </div>
+
+
+                <p class="job-description">
+                    Work on machine learning models,
+                    data processing and AI applications.
+                </p>
+
+
+                <div class="skills">
+
+                    <span class="skill good">Python ✓</span>
+                    <span class="skill good">Machine Learning ✓</span>
+                    <span class="skill good">SQL ✓</span>
+                    <span class="skill warning">Docker ⚠</span>
+
+                </div>
+
+
+                <button class="secondary-btn">
+                    View Job
+                </button>
+
+            </div>
+
+
+            <!-- JOB CARD 2 -->
+            <div class="job-card">
+
+                <div class="job-top">
+
+                    <div>
+                        <h3>Frontend Developer</h3>
+                        <p>Software Company</p>
+                    </div>
+
+                    <div class="match-score">
+                        78%
+                    </div>
+
+                </div>
+
+
+                <p class="job-description">
+                    Build modern web applications using
+                    HTML, CSS, JavaScript and React.
+                </p>
+
+
+                <div class="skills">
+
+                    <span class="skill good">HTML ✓</span>
+                    <span class="skill good">CSS ✓</span>
+                    <span class="skill good">JavaScript ✓</span>
+                    <span class="skill warning">React ⚠</span>
+
+                </div>
+
+
+                <button class="secondary-btn">
+                    View Job
+                </button>
+
+            </div>
+
+
+            <!-- JOB CARD 3 -->
+            <div class="job-card">
+
+                <div class="job-top">
+
+                    <div>
+                        <h3>Data Analyst</h3>
+                        <p>Analytics Company</p>
+                    </div>
+
+                    <div class="match-score">
+                        72%
+                    </div>
+
+                </div>
+
+
+                <p class="job-description">
+                    Analyze business data and create
+                    dashboards and reports.
+                </p>
+
+
+                <div class="skills">
+
+                    <span class="skill good">Python ✓</span>
+                    <span class="skill good">SQL ✓</span>
+                    <span class="skill good">Excel ✓</span>
+                    <span class="skill warning">Power BI ⚠</span>
+
+                </div>
+
+
+                <button class="secondary-btn">
+                    View Job
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESUME SECTION -->
+    <section class="section" id="resume">
+
+        <div class="section-title">
+
+            <p class="small-title">03 • RESUME COPILOT</p>
+
+            <h2>Resume & Job Match</h2>
+
+            <p>
+                Upload your resume and compare it with a job description.
+            </p>
+
+        </div>
+
+
+        <div class="resume-grid">
+
+            <!-- RESUME UPLOAD -->
+            <div class="upload-box">
+
+                <div class="upload-icon">
+                    ↑
+                </div>
+
+                <h3>Upload Your Resume</h3>
+
+                <p>PDF or DOCX</p>
+
+                <input
+                    type="file"
+                    id="resumeFile"
+                    accept=".pdf,.docx"
+                    onchange="showFileName()"
+                >
+
+                <p id="fileName"></p>
+
+            </div>
+
+
+            <!-- JOB DESCRIPTION -->
+            <div class="input-box">
+
+                <h3>Job Description</h3>
+
+                <textarea
+                    id="jobDescription"
+                    placeholder="Paste the job description here..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div class="center-button">
+
+            <button class="primary-btn" onclick="analyzeResume()">
+                Analyze Match
+            </button>
+
+        </div>
+
+
+        <!-- MATCH RESULT -->
+
+        <div id="matchResult" class="match-result hidden">
+
+            <div class="big-score">
+                87%
+            </div>
+
+            <div>
+
+                <h3>Resume Match Score</h3>
+
+                <p>
+                    Your resume is a strong match for this position.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILL GAP -->
+    <section class="section light-section">
+
+        <div class="section-title">
+
+            <p class="small-title">04 • SKILL ANALYSIS</p>
+
+            <h2>Skill Gap Analysis</h2>
+
+            <p>
+                Identify skills that can improve your job match.
+            </p>
+
+        </div>
+
+
+        <div class="skill-gap-grid">
+
+            <div class="recommendation-card">
+
+                <div class="recommendation-icon">
+                    !
+                </div>
+
+                <h3>Improve Docker Skills</h3>
+
+                <p>
+                    Docker is mentioned frequently in the
+                    job description but is missing from your resume.
+                </p>
+
+                <span class="skill warning">
+                    Docker ⚠
+                </span>
+
+            </div>
+
+
+            <div class="recommendation-card">
+
+                <div class="recommendation-icon">
+                    +
+                </div>
+
+                <h3>Add Project Results</h3>
+
+                <p>
+                    Add measurable results to your projects
+                    to make your resume stronger.
+                </p>
+
+                <span class="skill good">
+                    Resume Improvement ✓
+                </span>
+
+            </div>
+
+
+            <div class="recommendation-card">
+
+                <div class="recommendation-icon">
+                    ★
+                </div>
+
+                <h3>Learn AWS</h3>
+
+                <p>
+                    AWS knowledge can improve your suitability
+                    for cloud and AI engineering roles.
+                </p>
+
+                <span class="skill warning">
+                    AWS ⚠
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESEARCH SECTION -->
+    <section class="section" id="research">
+
+        <div class="section-title">
+
+            <p class="small-title">05 • JOB RESEARCH</p>
+
+            <h2>Career Research</h2>
+
+            <p>
+                Understand what companies and job roles require.
+            </p>
+
+        </div>
+
+
+        <div class="research-grid">
+
+            <div class="research-card">
+
+                <h3>AI/ML Engineer</h3>
+
+                <p>
+                    AI/ML engineers design machine learning
+                    systems and AI-powered applications.
+                </p>
+
+                <div class="research-info">
+                    Skills: Python • ML • SQL • Cloud
+                </div>
+
+            </div>
+
+
+            <div class="research-card">
+
+                <h3>Frontend Developer</h3>
+
+                <p>
+                    Frontend developers create the user interface
+                    of websites and web applications.
+                </p>
+
+                <div class="research-info">
+                    Skills: HTML • CSS • JavaScript • React
+                </div>
+
+            </div>
+
+
+            <div class="research-card">
+
+                <h3>Data Analyst</h3>
+
+                <p>
+                    Data analysts transform data into useful
+                    business insights.
+                </p>
+
+                <div class="research-info">
+                    Skills: Python • SQL • Excel • Power BI
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>Career Query Assistant</h3>
+
+        <p>
+            AI-powered career guidance for students and professionals.
+        </p>
+
+        <p>
+            IBM BOB 2.0 Hackathon • Frontend MVP
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
