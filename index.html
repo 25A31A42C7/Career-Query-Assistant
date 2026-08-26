@@ -9,545 +9,264 @@
 
 <body>
 
-    <div class="app">
+<div class="app">
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <div class="logo">
-                <div class="logo-icon">C</div>
-                <div>
-                    <h2>Career</h2>
-                    <span>Query Assistant</span>
-                </div>
+    <aside class="sidebar">
+        <h2>Career Query</h2>
+        <p class="logo-sub">AI Career Workspace</p>
+
+        <button class="nav active" data-page="dashboard">🏠 Dashboard</button>
+        <button class="nav" data-page="career">🔎 Career Query</button>
+        <button class="nav" data-page="research">🔬 Job Research</button>
+        <button class="nav" data-page="resume">📄 Resume Analyzer</button>
+        <button class="nav" data-page="project">🧠 Project Intelligence</button>
+        <button class="nav" data-page="generator">📝 Resume Generator</button>
+    </aside>
+
+
+    <main class="main">
+
+        <header>
+            <div>
+                <h3>CAREER QUERY ASSISTANT</h3>
+                <p>AI Career Workspace</p>
+            </div>
+            <div class="profile">A</div>
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard" class="page active">
+
+            <div class="hero">
+                <small>CAREER COCKPIT</small>
+                <h1>Welcome, Career Explorer 👋</h1>
+                <p>Explore careers, research jobs and improve your resume.</p>
             </div>
 
-            <nav>
-                <button class="nav-item active" data-page="dashboard">
-                    🏠 <span>Dashboard</span>
-                </button>
+            <div class="cards">
 
-                <button class="nav-item" data-page="career-query">
-                    🔎 <span>Career Query</span>
-                </button>
+                <div class="card">
+                    <div class="icon">🔎</div>
+                    <h2>Career Query</h2>
+                    <p>Ask questions about careers and skills.</p>
+                    <button class="open-btn" data-go="career">Open Career Query →</button>
+                </div>
 
-                <button class="nav-item" data-page="job-research">
-                    🔬 <span>Job Research</span>
-                </button>
+                <div class="card">
+                    <div class="icon">🔬</div>
+                    <h2>Job Research</h2>
+                    <p>Understand job requirements and technologies.</p>
+                    <button class="open-btn" data-go="research">Research a Job →</button>
+                </div>
 
-                <button class="nav-item" data-page="resume-analyzer">
-                    📄 <span>Resume Analyzer</span>
-                </button>
+                <div class="card">
+                    <div class="icon">📄</div>
+                    <h2>Resume Analyzer</h2>
+                    <p>Compare your resume with a job description.</p>
+                    <button class="open-btn" data-go="resume">Analyze Resume →</button>
+                </div>
 
-                <button class="nav-item" data-page="project-intelligence">
-                    🧠 <span>Project Intelligence</span>
-                </button>
-
-                <button class="nav-item" data-page="resume-generator">
-                    📝 <span>Resume Generator</span>
-                </button>
-            </nav>
-
-            <div class="sidebar-bottom">
-                <button class="nav-item">
-                    ⚙️ <span>Settings</span>
-                </button>
             </div>
-        </aside>
 
+            <h2>Recommended Roles</h2>
 
-        <!-- MAIN AREA -->
-        <main class="main">
+            <div class="roles">
 
-            <!-- HEADER -->
-            <header class="topbar">
-                <div>
-                    <h1>CAREER QUERY ASSISTANT</h1>
-                    <p>Your AI career workspace</p>
+                <div class="role">
+                    <span>🤖</span>
+                    <b>AI/ML Engineer</b>
+                    <strong>91%</strong>
+                    <p>Python • ML • SQL</p>
                 </div>
 
-                <div class="profile">
-                    <div class="profile-info">
-                        <strong>Career Explorer</strong>
-                        <span>Student</span>
-                    </div>
-                    <div class="avatar">A</div>
-                </div>
-            </header>
-
-
-            <!-- ================= DASHBOARD ================= -->
-            <section class="page active" id="dashboard">
-
-                <div class="welcome">
-                    <div>
-                        <span class="eyebrow">CAREER COCKPIT</span>
-                        <h2>Welcome, Career Explorer 👋</h2>
-                        <p>Explore careers, analyze jobs and build a stronger resume.</p>
-                    </div>
+                <div class="role">
+                    <span>🧠</span>
+                    <b>Machine Learning Engineer</b>
+                    <strong>88%</strong>
+                    <p>Python • TensorFlow • SQL</p>
                 </div>
 
-                <div class="action-grid">
-
-                    <div class="action-card" data-open="career-query">
-                        <div class="action-icon">🔎</div>
-                        <h3>Career Query</h3>
-                        <p>Ask questions about careers, roles and required skills.</p>
-                        <button>Open Career Query →</button>
-                    </div>
-
-                    <div class="action-card" data-open="job-research">
-                        <div class="action-icon">🔬</div>
-                        <h3>Job Research</h3>
-                        <p>Analyze a job description and understand its requirements.</p>
-                        <button>Research a Job →</button>
-                    </div>
-
-                    <div class="action-card" data-open="resume-analyzer">
-                        <div class="action-icon">📄</div>
-                        <h3>Resume Analyzer</h3>
-                        <p>Compare your resume with a target job description.</p>
-                        <button>Analyze Resume →</button>
-                    </div>
-
+                <div class="role">
+                    <span>💻</span>
+                    <b>Full Stack Developer</b>
+                    <strong>82%</strong>
+                    <p>React • Python • APIs</p>
                 </div>
 
+            </div>
 
-                <div class="section-heading">
-                    <div>
-                        <span class="eyebrow">CAREER OPTIONS</span>
-                        <h2>Recommended Roles</h2>
-                    </div>
-                </div>
-
-                <div class="role-grid">
-
-                    <div class="role-card">
-                        <div class="role-top">
-                            <span class="role-icon">🤖</span>
-                            <span class="match">91%</span>
-                        </div>
-                        <h3>AI/ML Engineer</h3>
-                        <p>Python • ML • SQL</p>
-                        <button class="outline-btn">Explore Role</button>
-                    </div>
-
-                    <div class="role-card">
-                        <div class="role-top">
-                            <span class="role-icon">🧠</span>
-                            <span class="match">88%</span>
-                        </div>
-                        <h3>Machine Learning Engineer</h3>
-                        <p>Python • TensorFlow • SQL</p>
-                        <button class="outline-btn">Explore Role</button>
-                    </div>
-
-                    <div class="role-card">
-                        <div class="role-top">
-                            <span class="role-icon">💻</span>
-                            <span class="match">82%</span>
-                        </div>
-                        <h3>Full Stack Developer</h3>
-                        <p>React • Python • APIs</p>
-                        <button class="outline-btn">Explore Role</button>
-                    </div>
-
-                </div>
+        </section>
 
 
-                <div class="recent-card">
-                    <div>
-                        <span class="eyebrow">RECENT ANALYSIS</span>
-                        <h2>Resume Match</h2>
-                        <p>Your latest resume analysis</p>
-                    </div>
+        <!-- CAREER QUERY -->
 
-                    <div class="big-score">87%</div>
-                </div>
+        <section id="career" class="page">
 
-            </section>
+            <div class="hero">
+                <small>CAREER EXPLORATION</small>
+                <h1>Career Query Assistant</h1>
+                <p>Ask anything about your career.</p>
+            </div>
 
+            <div class="form-box">
 
-            <!-- ================= CAREER QUERY ================= -->
-            <section class="page" id="career-query">
+                <label>What do you want to know?</label>
 
-                <div class="page-header">
-                    <span class="eyebrow">CAREER EXPLORATION</span>
-                    <h2>Career Query Assistant</h2>
-                    <p>Ask questions about careers, skills and job roles.</p>
-                </div>
+                <textarea id="careerInput"
+                    placeholder="Example: What skills do I need for an ML Engineer?"></textarea>
 
-                <div class="query-box">
+                <button id="careerButton">Ask Career Assistant</button>
 
-                    <label>What do you want to know?</label>
+                <div id="careerAnswer" class="answer"></div>
 
-                    <textarea id="careerQuestion"
-                        placeholder="Ask something like: What roles can I get with Python and SQL?"></textarea>
+            </div>
 
-                    <div class="examples">
-                        <span>Try an example:</span>
-                        <button class="example-btn">What roles can I get with Python and SQL?</button>
-                        <button class="example-btn">What skills do I need for an ML Engineer?</button>
-                    </div>
-
-                    <button class="primary-btn" id="askCareer">
-                        Ask Career Assistant
-                    </button>
-
-                </div>
-
-                <div id="careerResults" class="result-area">
-
-                    <div class="section-heading">
-                        <div>
-                            <span class="eyebrow">MOCK RESULTS</span>
-                            <h2>Recommended Roles</h2>
-                        </div>
-                    </div>
-
-                    <div class="role-grid">
-
-                        <div class="role-card">
-                            <div class="role-top">
-                                <span class="role-icon">🤖</span>
-                                <span class="match">91%</span>
-                            </div>
-                            <h3>AI/ML Engineer</h3>
-                            <p>Python • ML • SQL</p>
-                            <button class="outline-btn">Explore Role</button>
-                        </div>
-
-                        <div class="role-card">
-                            <div class="role-top">
-                                <span class="role-icon">📊</span>
-                                <span class="match">86%</span>
-                            </div>
-                            <h3>Data Scientist</h3>
-                            <p>Python • SQL • Statistics</p>
-                            <button class="outline-btn">Explore Role</button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
+        </section>
 
 
-            <!-- ================= JOB RESEARCH ================= -->
-            <section class="page" id="job-research">
+        <!-- JOB RESEARCH -->
 
-                <div class="page-header">
-                    <span class="eyebrow">JOB INTELLIGENCE</span>
-                    <h2>Research a Job</h2>
-                    <p>Understand the skills and responsibilities behind a job.</p>
-                </div>
+        <section id="research" class="page">
 
-                <div class="form-card">
+            <div class="hero">
+                <small>JOB INTELLIGENCE</small>
+                <h1>Research a Job</h1>
+                <p>Analyze a job description.</p>
+            </div>
 
-                    <div class="form-grid">
+            <div class="form-box">
 
-                        <div class="form-group">
-                            <label>Job Title</label>
-                            <input id="jobTitle" value="AI/ML Engineer">
-                        </div>
+                <label>Job Title</label>
+                <input id="jobTitle" value="AI/ML Engineer">
 
-                        <div class="form-group">
-                            <label>Company</label>
-                            <input id="company" placeholder="Example Company">
-                        </div>
+                <label>Company</label>
+                <input id="company" placeholder="Company name">
 
-                    </div>
+                <label>Paste Job Description</label>
+                <textarea id="jobDescription"
+                    placeholder="Paste job description here..."></textarea>
 
-                    <div class="form-group">
-                        <label>Paste Job Description</label>
-                        <textarea id="jobDescription"
-                            placeholder="Paste the job description here..."></textarea>
-                    </div>
+                <button id="researchButton">Analyze Job</button>
 
-                    <button class="primary-btn" id="analyzeJob">
-                        Analyze Job
-                    </button>
+                <div id="researchResult" class="answer"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESUME ANALYZER -->
+
+        <section id="resume" class="page">
+
+            <div class="hero">
+                <small>RESUME INTELLIGENCE</small>
+                <h1>Resume & Job Match</h1>
+                <p>Upload your resume and enter a target job.</p>
+            </div>
+
+            <div class="form-box">
+
+                <div class="upload">
+
+                    <div class="upload-icon">📄</div>
+
+                    <h2>Upload Resume</h2>
+
+                    <p>Choose your PDF resume</p>
+
+                    <input type="file" id="resumeFile" accept=".pdf">
+
+                    <label for="resumeFile" class="upload-button">
+                        Choose PDF
+                    </label>
+
+                    <p id="fileName"></p>
 
                 </div>
 
 
-                <div class="insights-card">
+                <label>Paste Job Description</label>
 
-                    <div class="section-heading">
-                        <div>
-                            <span class="eyebrow">JOB INSIGHTS</span>
-                            <h2>AI/ML Engineer</h2>
-                        </div>
-                    </div>
+                <textarea id="resumeJob"
+                    placeholder="Paste the job description here..."></textarea>
 
-                    <div class="insight-grid">
+                <button id="matchButton">Analyze Match</button>
 
-                        <div class="insight-box">
-                            <h3>Required Skills</h3>
-                            <div class="skill-list">
-                                <span class="skill good">Python ✓</span>
-                                <span class="skill good">Machine Learning ✓</span>
-                                <span class="skill good">SQL ✓</span>
-                            </div>
-                        </div>
+                <div id="matchResult"></div>
 
-                        <div class="insight-box">
-                            <h3>Preferred Skills</h3>
-                            <div class="skill-list">
-                                <span class="skill warning">Docker ⚠</span>
-                                <span class="skill warning">AWS ⚠</span>
-                            </div>
-                        </div>
+            </div>
 
-                        <div class="insight-box">
-                            <h3>Technologies</h3>
-                            <p>Python | TensorFlow | SQL</p>
-                        </div>
+        </section>
 
-                        <div class="insight-box">
-                            <h3>Key Responsibilities</h3>
-                            <ul>
-                                <li>Build ML models</li>
-                                <li>Analyze data</li>
-                                <li>Deploy models</li>
-                            </ul>
-                        </div>
 
-                    </div>
+        <!-- PROJECT INTELLIGENCE -->
 
+        <section id="project" class="page">
+
+            <div class="hero">
+                <small>PROJECT INTELLIGENCE</small>
+                <h1>Connect your project</h1>
+                <p>Analyze your GitHub project.</p>
+            </div>
+
+            <div class="form-box">
+
+                <label>GitHub Repository URL</label>
+
+                <input id="githubUrl"
+                    placeholder="https://github.com/username/project">
+
+                <button id="projectButton">Analyze Project</button>
+
+                <div id="projectResult"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESUME GENERATOR -->
+
+        <section id="generator" class="page">
+
+            <div class="hero">
+                <small>RESUME BUILDER</small>
+                <h1>Tailored Resume</h1>
+                <p>Create a resume for your target role.</p>
+            </div>
+
+            <div class="form-box">
+
+                <label>Target Role</label>
+
+                <input id="targetRole" value="AI/ML Engineer">
+
+                <h3>Based on</h3>
+
+                <div class="badges">
+                    <span>✓ Resume</span>
+                    <span>✓ Job Description</span>
+                    <span>✓ Project Evidence</span>
                 </div>
 
-            </section>
+                <button id="generateButton">
+                    Generate Tailored Resume
+                </button>
 
+                <div id="generatedResume"></div>
 
-            <!-- ================= RESUME ANALYZER ================= -->
-            <section class="page" id="resume-analyzer">
+            </div>
 
-                <div class="page-header">
-                    <span class="eyebrow">RESUME INTELLIGENCE</span>
-                    <h2>Resume & Job Match</h2>
-                    <p>See how closely your resume matches a target job.</p>
-                </div>
+        </section>
 
-                <div class="form-card">
+    </main>
 
-                    <div class="upload-box" id="uploadBox">
-                        <div class="upload-icon">📄</div>
-                        <h3>Upload Resume</h3>
-                        <p>Drop your PDF here or choose a file</p>
+</div>
 
-                        <input type="file" id="resumeFile" accept=".pdf">
+<script src="script.js"></script>
 
-                        <button class="secondary-btn"
-                            onclick="document.getElementById('resumeFile').click()">
-                            Choose PDF
-                        </button>
-
-                        <span id="fileName"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Paste Job Description</label>
-                        <textarea id="resumeJob"
-                            placeholder="Paste the target job description here..."></textarea>
-                    </div>
-
-                    <button class="primary-btn" id="analyzeResume">
-                        Analyze Match
-                    </button>
-
-                </div>
-
-
-                <div class="match-result">
-
-                    <div class="score-card">
-                        <span>JOB MATCH</span>
-                        <strong>87%</strong>
-                        <div class="progress">
-                            <div style="width:87%"></div>
-                        </div>
-                    </div>
-
-                    <div class="match-grid">
-
-                        <div class="match-box">
-                            <h3>✓ Strong Matches</h3>
-                            <span class="skill good">Python ✓</span>
-                            <span class="skill good">SQL ✓</span>
-                            <span class="skill good">Machine Learning ✓</span>
-                            <span class="skill good">React ✓</span>
-                        </div>
-
-                        <div class="match-box">
-                            <h3>⚠ Underrepresented</h3>
-                            <span class="skill warning">FastAPI ⚠</span>
-                            <span class="skill warning">REST APIs ⚠</span>
-                        </div>
-
-                        <div class="match-box">
-                            <h3>✕ Missing</h3>
-                            <span class="skill missing">Docker ✕</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="recommendations">
-                        <h3>Recommendations</h3>
-
-                        <div class="recommendation">
-                            <span>01</span>
-                            <p>Add measurable project results</p>
-                        </div>
-
-                        <div class="recommendation">
-                            <span>02</span>
-                            <p>Highlight API development</p>
-                        </div>
-
-                        <div class="recommendation">
-                            <span>03</span>
-                            <p>Mention relevant ML projects</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================= PROJECT INTELLIGENCE ================= -->
-            <section class="page" id="project-intelligence">
-
-                <div class="page-header">
-                    <span class="eyebrow">PROJECT INTELLIGENCE</span>
-                    <h2>Connect your project</h2>
-                    <p>Understand how your project experience supports your career.</p>
-                </div>
-
-                <div class="form-card">
-
-                    <div class="form-group">
-                        <label>GitHub Repository URL</label>
-                        <input id="githubUrl"
-                            placeholder="https://github.com/username/repository">
-                    </div>
-
-                    <button class="primary-btn" id="analyzeProject">
-                        Analyze Project
-                    </button>
-
-                </div>
-
-
-                <div class="project-result">
-
-                    <div class="project-grid">
-
-                        <div class="project-box">
-                            <span class="eyebrow">DETECTED TECHNOLOGIES</span>
-                            <h3>Technology Stack</h3>
-
-                            <div class="skill-list">
-                                <span class="skill good">Python ✓</span>
-                                <span class="skill good">React ✓</span>
-                                <span class="skill good">Firebase ✓</span>
-                                <span class="skill good">FastAPI ✓</span>
-                                <span class="skill good">REST API ✓</span>
-                            </div>
-                        </div>
-
-
-                        <div class="project-box">
-                            <span class="eyebrow">PROJECT EVIDENCE</span>
-                            <h3>AI Resume Analyzer</h3>
-
-                            <div class="tree">
-                                <div>├── Python</div>
-                                <div>├── React</div>
-                                <div>├── API Integration</div>
-                                <div>└── Machine Learning</div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="resume-representation">
-                        <span class="eyebrow">RESUME REPRESENTATION</span>
-
-                        <h3>⚠ FastAPI appears in project</h3>
-
-                        <p>
-                            FastAPI appears in your project but is not clearly
-                            represented in your resume.
-                        </p>
-
-                        <button class="primary-btn" data-open="resume-generator">
-                            Improve Resume
-                        </button>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================= RESUME GENERATOR ================= -->
-            <section class="page" id="resume-generator">
-
-                <div class="page-header">
-                    <span class="eyebrow">RESUME BUILDER</span>
-                    <h2>Tailored Resume</h2>
-                    <p>Create a resume targeted toward your desired role.</p>
-                </div>
-
-                <div class="form-card">
-
-                    <div class="form-group">
-                        <label>Target Role</label>
-                        <input value="AI/ML Engineer">
-                    </div>
-
-                    <div class="based-on">
-                        <h3>Based on</h3>
-
-                        <span>✓ Resume</span>
-                        <span>✓ Job Description</span>
-                        <span>✓ Project Evidence</span>
-                    </div>
-
-                    <button class="primary-btn" id="generateResume">
-                        Generate Tailored Resume
-                    </button>
-
-                </div>
-
-
-                <div class="resume-preview">
-
-                    <div class="resume-top">
-                        <div>
-                            <h1>ARIFA YASMEEN</h1>
-                            <p>AI/ML Developer</p>
-                        </div>
-
-                        <span class="resume-status">TAILORED</span>
-                    </div>
-
-                    <div class="resume-section">
-                        <h3>SUMMARY</h3>
-                        <p>
-                            AI/ML developer with experience in Python,
-                            machine learning, SQL and modern web technologies.
-                            Passionate about building intelligent applications.
-                        </p>
-                    </div>
-
-                    <div class="resume-section">
-                        <h3>SKILLS</h3>
-                        <p>Python | Machine Learning | SQL | React | FastAPI</p>
-                    </div>
-
-                    <div cl
+</body>
+</html>
