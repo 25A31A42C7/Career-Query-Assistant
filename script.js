@@ -374,3 +374,131 @@ if (generateButton) {
     });
 
 }
+// =========================
+// CAREER LEARNING FLASHCARDS
+// =========================
+
+const flashcards = [
+    {
+        skill: "SQL",
+        question: "What is a primary key?",
+        answer: "A primary key is a column or set of columns that uniquely identifies each row in a table."
+    },
+    {
+        skill: "SQL",
+        question: "What is a foreign key?",
+        answer: "A foreign key is a column that creates a relationship between two tables."
+    },
+    {
+        skill: "SQL",
+        question: "What is a JOIN?",
+        answer: "A JOIN is used to combine rows from two or more tables based on a related column."
+    },
+    {
+        skill: "SQL",
+        question: "What is an INNER JOIN?",
+        answer: "An INNER JOIN returns records that have matching values in both tables."
+    },
+    {
+        skill: "SQL",
+        question: "What is a LEFT JOIN?",
+        answer: "A LEFT JOIN returns all records from the left table and matching records from the right table."
+    },
+    {
+        skill: "SQL",
+        question: "What is normalization?",
+        answer: "Normalization is the process of organizing database tables to reduce data redundancy."
+    },
+    {
+        skill: "SQL",
+        question: "What is GROUP BY?",
+        answer: "GROUP BY groups rows with the same values so aggregate functions can be used."
+    },
+    {
+        skill: "SQL",
+        question: "What is an index?",
+        answer: "An index helps a database find and retrieve rows faster."
+    },
+    {
+        skill: "SQL",
+        question: "What is a SQL query?",
+        answer: "A SQL query is a command used to retrieve or manipulate data in a database."
+    },
+    {
+        skill: "SQL",
+        question: "What is a database?",
+        answer: "A database is an organized collection of data that can be stored, managed, and retrieved."
+    }
+];
+
+let currentFlashcard = 0;
+let answerVisible = false;
+
+const skillElement = document.getElementById("flashcardSkill");
+const questionElement = document.getElementById("flashcardQuestion");
+const answerElement = document.getElementById("flashcardAnswer");
+const progressElement = document.getElementById("flashcardProgress");
+
+const showAnswerButton = document.getElementById("showAnswerButton");
+const previousButton = document.getElementById("previousFlashcard");
+const nextButton = document.getElementById("nextFlashcard");
+
+function displayFlashcard() {
+
+    const card = flashcards[currentFlashcard];
+
+    skillElement.textContent = card.skill;
+    questionElement.textContent = card.question;
+
+    answerElement.textContent = answerVisible
+        ? card.answer
+        : "";
+
+    showAnswerButton.style.display = answerVisible
+        ? "none"
+        : "inline-block";
+
+    progressElement.textContent =
+        `${currentFlashcard + 1} / ${flashcards.length}`;
+
+    previousButton.disabled = currentFlashcard === 0;
+    nextButton.disabled =
+        currentFlashcard === flashcards.length - 1;
+}
+
+showAnswerButton.addEventListener("click", function () {
+
+    answerVisible = true;
+
+    displayFlashcard();
+
+});
+
+nextButton.addEventListener("click", function () {
+
+    if (currentFlashcard < flashcards.length - 1) {
+
+        currentFlashcard++;
+
+        answerVisible = false;
+
+        displayFlashcard();
+    }
+
+});
+
+previousButton.addEventListener("click", function () {
+
+    if (currentFlashcard > 0) {
+
+        currentFlashcard--;
+
+        answerVisible = false;
+
+        displayFlashcard();
+    }
+
+});
+
+displayFlashcard();
+
